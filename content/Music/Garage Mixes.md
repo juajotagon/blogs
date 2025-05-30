@@ -6,7 +6,9 @@ tags:
   - music
   - gargage
 ---
- 
+
+# Art of Garage 
+
 I love my garage music. But not in the garage-genre sense. My garage playlists.
 
 That's why this will be the first post.
