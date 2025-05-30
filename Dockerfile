@@ -1,5 +1,5 @@
 # Etapa 1: Construir el sitio Quartz
-FROM node:20-alpine AS builder # O node:22-alpine si lo prefieres
+FROM node:22-alpine AS builder
 WORKDIR /app
 RUN apk add --no-cache git
 COPY package.json package-lock.json* ./
