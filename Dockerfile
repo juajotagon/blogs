@@ -1,11 +1,12 @@
-FROM node:22-slim AS builder
-WORKDIR /usr/src/app
-COPY package.json .
-COPY package-lock.json* .
+# Etapa 1: Construir el sitio Quartz
+FROM node:20-alpine AS builder # O node:22-alpine si lo prefieres
+WORKDIR /app
+RUN apk add --no-cache git
+COPY package.json package-lock.json* ./
 RUN npm ci
-
-FROM node:22-slim
-WORKDIR /usr/src/app
-COPY --from=builder /usr/src/app/ /usr/src/app/
 COPY . .
-CMD ["npx", "quartz", "build", "--serve"]
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=builder /app/public /usr/share/nginx/html
+EXPOSE 80
