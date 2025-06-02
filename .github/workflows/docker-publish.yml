@@ -40,7 +40,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: . # El contexto de construcción es la raíz del repo (donde está tu Dockerfile)
           push: true # Indica que queremos hacer push de la imagen
